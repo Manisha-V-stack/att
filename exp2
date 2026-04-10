@@ -1,0 +1,39 @@
+package labexp;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class exp2 {
+
+    public static void main(String[] args) throws InterruptedException {
+
+        ChromeDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+
+        driver.get("https://duckduckgo.com/");
+        driver.findElement(By.name("q")).sendKeys("Mercury Travels in");
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("//span[normalize-space()='Mercury Travels']")).click();
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("(//a[normalize-space()='Customer Login'])[2]")).click();
+        Thread.sleep(1000);
+
+        driver.findElement(By.xpath("(//a[normalize-space()='Register'])[2]")).click();
+        Thread.sleep(2000);
+
+        driver.findElement(By.xpath("//input[@id='acc_first_name']")).sendKeys("Divya");
+        driver.findElement(By.xpath("//input[@id='acc_last_name']")).sendKeys("L");
+        driver.findElement(By.xpath("//input[@id='acc_user_email']")).sendKeys("divu444@gmail.com");
+
+        driver.findElement(By.xpath("//input[@id='acc_user_password']")).sendKeys("teja1234");
+        driver.findElement(By.xpath("//input[@id='acc_user_passport']")).sendKeys("teja1234");
+        driver.findElement(By.xpath("//input[@id='acc_mobile_no']")).sendKeys("9999999999");
+
+        driver.findElement(By.xpath("//button[normalize-space()='Register'][1]")).click();
+
+        Thread.sleep(3000);
+        driver.quit();
+    }
+}
