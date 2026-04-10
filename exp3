@@ -1,0 +1,62 @@
+package week3java;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class exp3 {
+
+    public static void main(String[] args) throws Interrupted Exception {
+
+        ChromeDriver driver = new ChromeDriver();
+
+        driver.manage().window().maximize();
+
+        driver.get("https://duckduckgo.com/");
+
+        driver.findElement(By.name("q")).sendKeys("facebook login or signup");
+
+        Thread.sleep(1500);
+
+        driver.findElement(By.xpath("//span[normalize-space()='Facebook – log in or sign up']")).click();
+
+        Thread.sleep(1500);
+
+        driver.findElement(By.xpath("//a[normalize-space()='create new account']")).click();
+
+        Thread.sleep(1500);
+
+        driver.findElement(By.name("firstname")).sendKeys("Sumegh");
+
+        Thread.sleep(500);
+
+        driver.findElement(By.name("lastname")).sendKeys("Kulkarni");
+
+        Thread.sleep(500);
+
+        driver.findElement(By.id("day")).sendKeys("08");
+
+        Thread.sleep(500);
+
+        driver.findElement(By.id("month")).sendKeys("April");
+
+        Thread.sleep(500);
+
+        driver.findElement(By.id("year")).sendKeys("2007");
+
+        Thread.sleep(1500);
+
+        driver.findElement(By.xpath("//input[@id='sex'][2]")).click();
+
+        Thread.sleep(500);
+
+        driver.findElement(By.name("reg_email__")).sendKeys("hello@gmail.com");
+
+        Thread.sleep(500);
+
+        driver.findElement(By.id("password_setup_input")).sendKeys("hello235678");
+
+        Thread.sleep(500);
+
+        driver.findElement(By.name("websubmit")).click();
+    }
+}
