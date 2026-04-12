@@ -1,0 +1,41 @@
+package att;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
+
+public class Exp12 {
+
+    public static void main(String[] args) throws InterruptedException {
+
+        ChromeDriver d = new ChromeDriver();
+        d.manage().window().maximize();
+
+        d.get("https://duckduckgo.com");
+        d.get("https://www.ilovepdf.com/word_to_pdf");
+
+        Thread.sleep(1500);
+
+        d.findElement(By.xpath("//input[@type='file']"))
+         .sendKeys("C:\\Users\\lgajaw\\OneDrive\\Documents\\ATT(TRAVEL)MP.docx");
+
+        Thread.sleep(4000);
+
+        d.findElement(By.id("processTask")).click();
+
+        WebDriverWait wait = new WebDriverWait(d, Duration.ofSeconds(10));
+        WebElement download = wait.until(
+                ExpectedConditions.elementToBeClickable(
+                        By.xpath("//span[normalize-space()='Download']")
+                )
+        );
+
+        download.click();
+
+        Thread.sleep(4000);
+        d.quit();
+    }
+}
